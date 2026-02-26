@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Website Traffic</h2>
+  <div id="line-chart"></div>
+
+  <script src="light-chart.js"></script>
+  <script>
+    document.getElementById("line-chart").innerHTML = chart.line({
+      labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      data: [[150, 230, 180, 320, 290, 410, 380], [130, 100, 150, 300, 250, 300, 100]]
+    });
+  </script>
+</body>
+</html>

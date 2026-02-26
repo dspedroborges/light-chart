@@ -67,6 +67,15 @@ chart.line({
 });
 ```
 
+**Multiple lines:**
+
+```javascript
+chart.line({
+  labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+  data: [[150, 230, 180, 320, 290, 410, 380], [130, 100, 150, 300, 250, 300, 100]]
+});
+```
+
 ### chart.pie
 
 Renders a pie chart with automatic labeling.
@@ -80,7 +89,7 @@ chart.pie({
 
 **Options:**
 - `labels` - Array of strings for x-axis labels
-- `data` - Array of numbers
+- `data` - Array of numbers or array of arrays for multiple lines
 
 **Note:** Labels and data arrays must have the same length. Returns an empty string if they don't match.
 
@@ -104,7 +113,7 @@ const app = new Elysia()
   }))
   .get('/chart/line', () => chart.line({
     labels: ["Q1", "Q2", "Q3", "Q4"],
-    data: [3, 12, 8, 20]
+    data: [[3, 12, 8, 20], [5, 9, 15, 10]]
   }))
   .get('/chart/pie', () => chart.pie({
     labels: ["A", "B", "C"],
@@ -162,7 +171,7 @@ Run with `npx tsx server.ts`
   <script>
     document.getElementById("line-chart").innerHTML = chart.line({
       labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-      data: [150, 230, 180, 320, 290, 410, 380]
+      data: [[150, 230, 180, 320, 290, 410, 380], [130, 100, 150, 300, 250, 300, 100]]
     });
   </script>
 </body>
@@ -248,7 +257,7 @@ Run with `npx tsx server.ts`
 
     document.getElementById("users").innerHTML = chart.line({
       labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
-      data: [100, 250, 400, 380]
+      data: [[100, 250, 400, 380], [80, 200, 350, 300]]
     });
 
     document.getElementById("distribution").innerHTML = chart.pie({
